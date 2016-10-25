@@ -1,0 +1,124 @@
+<?php
+/*------------------------------------------------------------------------
+ # SM Scrollbar - Version 1.0
+ # Copyright (c) 2013 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.magentech.com
+-------------------------------------------------------------------------*/
+
+//Zend_debug::dump($list); die("godfather");
+$tag_id = 'sm-scrollbar'.rand().time();
+/*
+ob_start();
+
+$css = ob_get_contents();
+?>
+	#<?php echo $tag_id ?> .scrb-items .scrb-item{
+		width:<?php echo $options->item_width; ?>px;
+	}
+	
+<?php 
+$css = ob_get_contents();
+ob_end_clean();
+$document = JFactory::getDocument();
+$document->addStyleDeclaration($css);
+*/
+$num_items = count($list);
+$num_rows  = (int)$options->num_rows;
+if ($num_rows < 1){
+	$num_rows = 1;
+}
+$item_on_line = $num_rows<=1 ? $num_items : ceil((1.0/$num_rows)*$num_items);
+
+?>
+
+ <div id="<?php echo $tag_id; ?>" class="scrollbar-wrap ">
+	<div  class="scrb-items cf ">
+		<?php $i=0;$j=0; foreach($list as $item) { $j++;$i++;
+			if ($item_on_line == 1 || $i % $item_on_line == 1){
+				// open line
+				
+				$line_class = 'scrb-line';
+				if ($i==$num_rows){
+					$line_class .= ' last-line';
+				}
+				echo '<div class="' . $line_class . '">';
+				
+			}
+			$is_last_item = ($i%$item_on_line==0) || ($i==$num_items);
+		?>
+		<div class="scrb-item" style="width:<?php echo $options->item_width; ?>px;">
+			<div class="scrb-item-inner">
+				<div class="scrb-image">
+					<a href="<?php echo $item['link']; ?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true"; title="<?php echo $item['title'];?>" >
+						<img src="<?php echo $item['image'];?>" alt="<?php echo $item['title']; ?>" title="<?php echo $item['title']; ?>" />
+					</a>
+				</div>
+				<?php if( $options->product_title_disp == 1 && $item['title'] !='' ) { ?>
+				<div class="scrb-title">
+					<a href="<?php echo $item['link']; ?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true"; title="<?php echo $item['title']?>" >
+						<?php echo $item['title']; ?>
+					</a>
+				</div>
+				<?php }
+				if( $options->product_description_disp == 1 && $options->product_description_disp != '' ) { ?>
+				<div class="scrb-desc">
+					<?php echo $item['desc']; ?>
+				</div>
+				<?php }?>
+				<?php if($options->product_reviews_count == 1){ ?>
+					<div class="item-review">
+						<?php echo $item['review']; ?>
+					</div>
+				<?php }					 
+				if( (int)$options->product_price_disp ){ ?>
+					<div class="item-price">
+						<div class="sale-price">
+						<?php echo $item['price'];?>
+						</div>
+					</div>
+				<?php }?>
+				<?php if( $options->product_details_page_link_disp == 1) {?>
+				<div class="scrb-readmore">
+					<a href="<?php echo $item['link']; ?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true"; title="<?php echo $item['title']; ?>" >
+						<?php echo $options->product_details_page_link_text; ?>
+					</a>
+				</div>
+				<?php } ?>
+			</div>
+		</div>
+		<?php
+			if ($is_last_item){
+				echo '</div>';
+			}?>  
+		<?php } ?>
+	</div>
+ </div>
+ 
+<script type="text/javascript">
+//<![CDATA[
+jQuery(document).ready(function($) {
+	;(function(element){
+		var $element = $(element);
+		//(function($){
+		//	$(window).load(function(){
+				$(".scrb-items",$element).mCustomScrollbar({
+					scrollInertia:550,
+					horizontalScroll:true,
+					mouseWheelPixels:116,
+					autoDraggerLength:true,
+					scrollButtons:{
+						enable:<?php echo $show_arrows ?>,
+						scrollAmount:116
+					},
+					 advanced:{
+						updateOnContentResize: true
+					},theme:"dark"
+				});
+		//	});
+		//})(jQuery);
+	})('#<?php echo $tag_id; ?>');
+});	
+//]]>	
+</script>

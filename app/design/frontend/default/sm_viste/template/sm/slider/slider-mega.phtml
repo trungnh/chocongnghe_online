@@ -1,0 +1,187 @@
+<?php
+/*------------------------------------------------------------------------
+ # SM Slider - Version 1.1
+ # Copyright (c) 2013 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.magentech.com
+-------------------------------------------------------------------------*/
+
+$options = $this->getConfigObject();
+$uniqued ='container_slider_'.rand().time();
+$smarthelper= Mage::helper('slider/utils');
+$list = $this->getProducts();
+
+if(!empty($list)){
+	echo $this->getScriptTags();?>
+	<?php if(!empty($options->pretext)) { ?>
+		<div class="pre-text"><?php echo $options->pretext; ?></div>
+	<?php } ?>
+	<div id="<?php echo $uniqued; ?>" class="container-slider" style="<?php if( $options->anchor == "bottom" ){ echo "margin-bottom:40px;"; }?>">
+			<div class="page-title-slider"><i></i><h1><?php echo $options->slider_title_text;?></h1></div>
+			<?php if($options->anchor =="top"){?>
+			<?php if($options->button_display == 1){?>
+			<div class="page-button <?php echo $options->anchor;?> <?php echo $options->control;?>">
+				<ul class="control-button">
+					<li class="preview"><i></i>Prev</li>
+					<li class="next"><i></i>Next</li>
+				</ul>		
+			</div>
+			<?php }}?>
+	
+		<div class="slider not-js cols-6 <?php echo $options->deviceclass_sfx; ?>">
+			<div class="vpo-wrap">
+				<div class="vp">
+					<div class="vpi-wrap">
+					<?php foreach($list as $item){
+					$_product = Mage::getModel('catalog/product')->load($item['id']);?>
+                    <?php 
+					$now = date("Y-m-d");
+					$newsFrom= substr($_product->getData('news_from_date'),0,10);
+					$newsTo=  substr($_product->getData('news_to_date'),0,10);
+					$specialprice = Mage::getModel('catalog/product')->load($_product->getId())->getSpecialPrice(); 
+					$price = Mage::getModel('catalog/product')->load($_product->getId())->getPrice();
+					$saleoff= round(($price - $specialprice)/$price*100) ;				
+					?>
+                 
+                    <div class="item">
+                      	<div class="item-inner">                    	                     
+                        <div class="item-box-header">
+                        	<?php if( $options->product_title_disp == 1 ){?>                            
+                            <h2 class="product-name">
+                                <a href="<?php echo $item['link'];?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true">
+									<?php echo $item['title'];?>
+								</a>
+                            </h2>                         
+                            <?php } ?> 
+                            <?php if( (int)$options->product_price_disp ){ ?>
+                                <div class="price-wrapper">                                    
+                                    <?php echo $item['price'];?>                                    
+                                </div>
+                            <?php }?>	                                    
+                            
+                        </div>
+                        <div class="item-box">
+                            <div class="product-image">
+                                <?php
+                                if ($now>=$newsFrom && $now<=$newsTo){ 	?>
+                                    <div class='new-item'><span><?php echo $this->__('New'); ?></span></div>
+                                <?php }
+                                if ($specialprice){ ?>
+                                    <div class='sale-item'><span><?php echo $saleoff.'%<br />'.$this->__('off');?></span></div>
+                                <?php }
+                                if ($isBestProduct){ ?>
+                                    <div class='best-item'></div>
+                                <?php }
+                                ?>	
+                                <a href="<?php echo $item['link'];?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true">
+											<img src="<?php echo $item['image'];?>" alt="<?php echo $item['title']; ?>" title="<?php echo $item['title']; ?>" />	    				
+								</a>							
+                                                									                                							                                <div class="bg-hover">                                                                                                         							                                    
+									<?php if($options->product_description_disp == 1) { ?>
+                                     <div class="item-short-desc">                                                                           	
+                                     	<?php echo $_product['short_description'];?>
+                                    </div> 
+                                     <?php } ?>   
+                                                                                                                  
+                                    <div class="ratings-wishlist">   
+                                    	<?php if($options->product_reviews_count == 1){ ?>                                                       
+                                    	<div class="ratings-wrap">
+											<?php                                           
+                                             //if($_product->getRatingSummary()): ?>
+                                            <?php  echo $this->getReviewsSummaryHtml($_product, false, true); ?>
+                                            <?php //endif; 
+                                                //echo $this->getReviewsSummaryHtml($_product, false, true);                                                
+                                            ?>
+                                     	</div>
+                                        <?php } ?>
+                                   	
+										<?php if ($this->helper('wishlist')->isAllow() ) : ?>
+                                            <a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="btn-wishlist" title="<?php echo $this->__('Add to Wishlist') ?>"><?php echo $this->__('Add to Wishlist') ?></a>
+                                        <?php endif; ?>                        
+                                    </div>                                     
+                                </div>
+                                                                    
+                            </div>
+                        </div>
+                        <div class="item-box-footer">	
+                        <div class="item-box-footer-inner">                            
+                            <div class="cart-compare-wishlist">                        
+                                <div class="cart-listing">  
+                                    <div class="cart-listing-inner">                         		                    
+                                        <?php if($_product->isSaleable()): ?>
+                                         <a title="<?php echo $this->__('Add to Cart') ?>" href="javascript:void(0);" class="btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">                         	
+                                            <span class="cart-text"><?php echo $this->__('Add to Cart') ?></span>
+                                          </a>
+                                        <?php else: ?>
+                                            <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                                        <?php endif; ?>
+                                  </div>
+                                 </div>				    
+							   <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                                    <div class="compare-listing">                        
+                                        <a href="<?php echo $_compareUrl ?>" class="link-compare" title="<?php echo $this->__('Compare'); ?>"><?php echo $this->__('Compare') ?></a>
+                                    </div>
+                                <?php endif; ?>	                                                      
+                            </div>
+                        </div>
+                        </div>                  
+                    </div>  
+                      
+                    </div> 
+                                                         
+					<?php }?>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<?php if($options->anchor !="top"){?>
+			<?php if($options->button_display == 1){?>
+			<div class="page-button <?php echo $options->anchor;?> <?php echo $options->control;?>">
+				<ul class="control-button">
+					<li class="preview">Prev</li>
+					<li class="next">Next</li>
+				</ul>		
+			</div>
+		<?php }}?>
+		
+	</div>
+	<?php if(!empty($options->posttext)) {  ?>
+		<div class="post-text"><?php echo $options->posttext; ?></div>
+	<?php } ?>
+<?php }else {echo $this->__('Has no item to show!');}?>
+
+<script type="text/javascript">
+//<![CDATA[
+    jQuery(document).ready(function($){
+        $('#<?php echo $uniqued;?> .slider').responsiver({
+            interval: <?php echo $options->delay;?>,
+            speed: <?php echo $options->duration;?>,
+            start: <?php echo $options->start -1;?>,
+            step: <?php echo $options->scroll;?>,
+            circular: true,
+            preload: true,
+			fx: 'slide',
+            pause: 'hover',
+            control:{
+				prev: '#<?php echo $uniqued;?> .control-button li[class="preview"]',
+				next: '#<?php echo $uniqued;?> .control-button li[class="next"]'
+            },
+			getColumns: function(element){
+				var match = $(element).attr('class').match(/cols-(\d+)/);
+				if (match[1]){
+					var column = parseInt(match[1]);
+				} else {
+					var column = 1;
+				}
+				if (!column) column = 1;
+				return column;
+			}          
+        });
+    });
+//]]>
+</script>
+
+
+

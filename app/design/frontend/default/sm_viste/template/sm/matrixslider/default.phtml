@@ -1,0 +1,97 @@
+<?php
+/*------------------------------------------------------------------------
+ # Sm Matrix Slider - Version 1.0.0
+ # Copyright (c) 2013 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.magentech.com
+-------------------------------------------------------------------------*/
+$options = $this->getConfigObject();
+$helper_base = Mage::helper('matrixslider/data');
+$list = $this->getProducts();
+$tag_id = 'sm_matrix_slider_'.rand().time();
+$count_item = count($list);
+$nb_column0 = ($options->nb_column0 >= $count_item)?$count_item:$options->nb_column0;
+$nb_column1 = ($options->nb_column1 >= $count_item)?$count_item:$options->nb_column1;
+$nb_column2 = ($options->nb_column2 >= $count_item)?$count_item:$options->nb_column2;
+$nb_column3 = ($options->nb_column3 >= $count_item)?$count_item:$options->nb_column3;
+$nb_column4 = ($options->nb_column4 >= $count_item)?$count_item:$options->nb_column4;
+$class_respl0= 'mts-resp00-'.$nb_column0.' mts-resp01-'.$nb_column1.' mts-resp02-'.$nb_column2.' mts-resp03-'.$nb_column3.' mts-resp04-'.$nb_column4;
+$nb_cl0 = ($nb_column0 > 1)?$nb_column0-1:1;
+$nb_cl1 = ($nb_column1 > 1)?$nb_column1-1:1;
+$nb_cl2 = ($nb_column2 > 1)?$nb_column2-1:1;
+$nb_cl3 = ($nb_column3 > 1)?$nb_column3-1:1;
+$nb_cl4 = ($nb_column4 > 1)?$nb_column4-1:1;
+$class_respl1 = 'preset00-'.$nb_cl0.' preset01-'.$nb_cl1.' preset02-'.$nb_cl2.' preset03-'.$nb_cl3.' preset04-'.$nb_cl4;
+$start = $options->eff_start;
+$start = ($start <=0 || $start > count($list))?0:$start-1;
+$interval = $options->interval;
+$play = (int)$options->auto_play;
+$interval = ($play == 1)?$interval:0;
+$speed = $options->speed;
+$pause_hover = $options->pause_hover;
+$easing = $options->easing;
+$swipe_enable = $options->swipe_enable;
+	echo $this->getScriptTags();
+	?>
+<?php if($options->pretext != '') { ?>
+	<div class="pre-text"><?php echo $options->pretext; ?></div>
+<?php } ?> 
+<?php
+if(!empty($list)) {
+	include dirname(__FILE__).'/default_js.phtml';
+	include dirname(__FILE__).'/default_item.phtml';
+?>
+<!--[if lt IE 7]><div class="sj-maxtrix-slider msie lt-ie9" id="<?php echo $tag_id; ?>"><![endif]-->
+<!--[if IE 7]><div class="sj-maxtrix-slider msie " id="<?php echo $tag_id; ?>"><![endif]-->
+<!--[if gt IE 7]><!--><div class="sm-maxtrix-slider" id="<?php echo $tag_id; ?>"><!--<![endif]-->
+	<div class="mts-wrap mts-wrap-next <?php echo $class_respl0; ?>">
+		<?php  echo $item_content; ?>
+		<div class="mts-images-wrap mts-reponsive">	
+			<div class="mts-slider not-js cols-6 <?php echo $class_respl1; ?>">
+				<div class="mts-container">
+					<div class="mts-container-inner">
+						<div class="mts-mark"><div class="mts-mark-inner"><a class="mts-mark-link" <?php echo $helper_base->parseTarget($options->product_links_target); ?> title="Title" href="#"></a></div></div>
+						<div class="mts-items">
+						<?php $i= -1;
+						foreach($list as $item){ $i++; ?>
+							<div class="mts-item" data-slide="<?php echo $i; ?>" >
+								<div class="item-wrap" 
+								data-subtitle="<?php echo $helper_base->truncate($item->title,$options->product_title_maxlength) ; ?>" 
+								data-title="<?php echo htmlentities($item->title, ENT_QUOTES, 'utf-8'); ?>" 
+								data-product-id="<?php echo $item->id; ?>" 
+								data-link="<?php echo  htmlentities($item->link, ENT_QUOTES, 'utf-8'); ?>" 
+								data-description="<?php echo htmlentities($item->description , ENT_QUOTES | ENT_IGNORE, "UTF-8"); ?>" 
+								data-price="<?php echo htmlentities($item->price, ENT_QUOTES, 'utf-8'); ?>"
+								data-rating="<?php echo htmlentities($item->review, ENT_QUOTES, 'utf-8'); ?>"
+								data-addtocart-url ="<?php echo htmlentities($item->addtocart_url, ENT_QUOTES, 'utf-8'); ?>"								
+                                data-addtowishlist-url ="<?php echo htmlentities($item->addtowishlist_url, ENT_QUOTES, 'utf-8'); ?>"
+                                data-addtocompare-url ="<?php echo htmlentities($item->addtocompare_url, ENT_QUOTES, 'utf-8'); ?>"
+								>
+									<div class="mts-image">
+										<img src="<?php  echo $item->image;?>" title="<?php echo $item->title; ?>" alt="<?php echo $item->title; ?>" />
+									</div>
+								</div>
+							</div>
+						<?php }?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>	
+</div>	
+<?php } else { ?>
+	<div class="mts-no-item">
+		<?php echo $this->__('Has no content to show!'); ?>
+	</div>
+<?php } ?>
+<?php if($options->posttext != '') {  ?>
+	<div class="post-text"><?php echo $options->posttext; ?></div>
+<?php }?>
+
+
+
+ 
+
+

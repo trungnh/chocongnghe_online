@@ -1,0 +1,149 @@
+/******************************************
+
+***           SmartAddon.Com           ****
+
+*******************************************/
+
+/* Split Menu */
+
+
+/* ----------------------*/
+
+/*     menu css       */
+
+/* ----------------------*/
+
+/****** Style Menu ******/
+.yt-left-wrap .block-menu{
+	position:relative;
+}
+
+.yt-left-wrap .block-menu .block-content ul.nav-menu{	
+}
+.yt-left-wrap .block-menu .block-content ul.nav-menu > li.parent > a{
+	background:url(../images/previous.png) no-repeat 202px center;
+}
+.yt-left-wrap .block-menu .block-content ul.nav-menu > li.active,
+.yt-left-wrap .block-menu .block-content ul.nav-menu > li:hover{
+	background-color:#f3f3f3;
+}
+.yt-left-wrap .block-menu .block-content ul.nav-menu > li.active > a,
+.yt-left-wrap .block-menu .block-content ul.nav-menu > li:hover > a{
+	color:#686868;
+}
+.yt-left-wrap .block-menu .block-content ul.nav-menu > li > a{
+    display: block;
+    outline: 0 none;      
+	padding-left:30px;  
+}
+.yt-left-wrap .block-menu .block-content ul.nav-menu > li > a > span{
+	font-size:110%;
+}
+ /*---menu css ---*/
+ .yt-left-wrap .block-menu .block-content .nav-menu > li:before{
+	/*content: "\f009";
+	float: left;
+    font-family: 'FontAwesome';
+    font-size: 9px;
+    margin: 0px 0px 0px 10px;*/
+ }
+.yt-left-wrap .block-menu .block-content ul.nav-menu > li{
+	background:url(../images/list-menu.png) no-repeat scroll 10px 15px transparent;
+	position: relative; 
+	display: inline-block; 
+	z-index: 2; 
+	line-height:40px; 
+	height:40px;
+	border-bottom:1px solid #ececec;
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;    
+	box-sizing: border-box;
+	width:100%;
+	}
+.yt-left-wrap .block-menu .block-content ul li ul li{
+	position: relative; 
+	display: block; 
+	z-index: 2; 
+	line-height:40px; 
+	height:40px;
+	border-bottom:1px dashed #848484;
+	padding-left:20px;
+}
+.yt-left-wrap .block-menu .block-content ul li ul li.last{ border-bottom:none;}
+.nav-menu li a{display: block; }
+.yt-left-wrap .block-menu .block-content .nav-menu ul{
+	border: 1px solid #ececec;
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;    
+	box-sizing: border-box;
+	display: none; background:#FFF; 
+	position: absolute;
+	left:100%; 
+	top:-1px; 
+	width: 200px;
+}
+.yt-left-wrap .block-menu .block-content .nav-menu ul li a{/*padding: 5px 0 0 30px;*/}
+.yt-left-wrap .block-menu .block-content .nav-menu ul li.active,
+.yt-left-wrap .block-menu .block-content .nav-menu ul li:hover{ background-color:#F3F3F3;}
+.yt-left-wrap .block-menu .block-content .nav-menu li:hover ul{display: block;}
+ 
+ /* + -*/
+div.sm_megamenu_wrapper_vertical_menu{
+	transition: all 0.2s ease-out 0s;
+	-moz-transition: all 0.2s ease-out 0s;
+	-webkit-transition: all 0.2s ease-out 0s;
+	-o-transition: all 0.2s ease-out 0s;
+}
+ul.sm_megamenu_menu{position: relative;}
+ul.sm_megamenu_menu > li{z-index: 1;}
+ul.sm_megamenu_menu .more-view{
+	position: absolute;bottom: 0px; right: 0px; width: 30px; height: 30px; background-color:#6cbe42; cursor: pointer; z-index: 2;
+	background: url("../images/plus.png") no-repeat scroll center center;
+}
+ul.sm_megamenu_menu .more-view.open{
+	position: absolute;bottom: 0px; right: 0px; width: 30px; height: 30px; background-color:#6cbe42; cursor: pointer; z-index: 2;
+	background: url("../images/minus.png") no-repeat scroll center center;
+}
+
+.block-menu .block-content{
+	transition: all 0.2s ease-out 0s;
+	-moz-transition: all 0.2s ease-out 0s;
+	-webkit-transition: all 0.2s ease-out 0s;
+	-o-transition: all 0.2s ease-out 0s;
+}
+.block-menu .block-content ul.nav-menu{position: relative;}
+.block-menu .block-content ul.nav-menu > li{z-index: 1;}
+.block-menu .block-content ul.nav-menu .more-view{
+	position: absolute;bottom: 0px; right: 0px; width: 30px; height: 30px; cursor: pointer; z-index: 2;
+	background: url("../images/plus.png") no-repeat scroll center center #6cbe42;
+}
+.block-menu .block-content ul.nav-menu .more-view.open{
+	position: absolute;bottom: 0px; right: 0px; width: 30px; height: 30px; cursor: pointer; z-index: 2;
+	background: url("../images/minus.png") no-repeat scroll center center #6cbe42;
+}
+#yt-responsivemenu{display:none}
+.yt-resmenu.menu-selectbox ul.nav-menu{
+	position: relative;z-index: 5;
+}
+.yt-resmenu.menu-selectbox ul.nav-menu li{
+	display: block;
+}
+.yt-resmenu.menu-selectbox .res-wrapnav{
+	height: 0;
+    opacity: 0;
+    transition: all 0.2s ease-out 0s;
+    -moz-transition: all 0.2s ease-out 0s;
+    -o-transition: all 0.2s ease-out 0s;
+    -webkit-transition: all 0.2s ease-out 0s;
+}
+.yt-resmenu.menu-selectbox ul.nav-menu li.haveChild .menuress-toggle {
+    background: none repeat scroll 0 0 #111111;
+    cursor: pointer;
+    font-family: FontAwesome;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    vertical-align: middle;
+    width: 30px;
+}

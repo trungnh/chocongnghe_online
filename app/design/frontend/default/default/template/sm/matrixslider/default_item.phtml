@@ -1,0 +1,58 @@
+<?php
+/*------------------------------------------------------------------------
+ # Sm Matrix Slider - Version 1.0.0
+ # Copyright (c) 2013 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.magentech.com
+-------------------------------------------------------------------------*/
+ob_start();
+?>
+<div class="mts-info mts-reponsive">
+	<div class="mts-info-inner">
+		<div class="mts-info-item">
+			<?php if( $options->product_title_disp == 1 ){?>
+			<div class="item-title">
+				<a href="<?php echo  $list[$start]->link; ?>" title="<?php echo $list[$start]->title; ?>" <?php echo $helper_base->parseTarget($options->product_links_target); ?> >
+					<?php echo  $helper_base->truncate($list[$start]->title,$options->product_title_maxlength) ; ?>
+				</a>
+			</div>
+			<?php }
+			if((int)$options->product_price_disp == 1){ ?>
+			<div class="item-price">
+				<?php echo $list[$start]->price; ?>
+			</div>
+			<?php } 
+			if($options->product_reviews_count == 1) {?>
+			<div class="item-rating">
+				<?php echo $list[$start]->review; ?>
+			</div>
+			<?php }
+			if($options->product_description_disp == 1) {?>
+			<div class="item-description">
+				<?php echo $list[$start]->description; ?>
+			</div>
+			<?php } 
+			if($options->product_readmore_disp == 1) {?>
+			<div class="item-readmore">
+				<a href="<?php $list[$start]->link; ?>" title="<?php echo $list[$start]->title; ?>"  <?php echo $helper_base->parseTarget($options->product_links_target); ?>>
+					<?php echo $options->product_readmore_text;?>
+				</a>  
+			</div>
+			<?php } ?>
+		</div>
+	</div>
+	<ul class="mts-control">
+		<li class="mts-prev"></li>
+		<li class="mts-addtocart">
+			<div class="addtocart-area">
+				<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart mts-adttocart-btn" onclick="<?php echo $list[$start]->addtocart_url; ?>"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+			</div>
+		</li>
+		<li class="mts-next"></li>
+	</ul>
+</div>
+<?php
+$item_content = ob_get_contents();
+ob_end_clean();
+ ?>

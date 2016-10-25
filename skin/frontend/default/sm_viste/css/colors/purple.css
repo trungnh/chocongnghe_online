@@ -1,0 +1,250 @@
+/*--purple - 5a0bab - */
+#yt_screennav ul.siderbar-menu > li.active > a span,
+#yt_screennav ul.siderbar-menu li ul li.active a span,
+#yt_screennav ul.siderbar-menu > li > a:hover span,
+#yt_screennav ul.siderbar-menu li ul li a:hover span,
+.sm-responsive-listing .respl-items.grid .respl-item:hover .item-box-header .product-name a,
+.sm-responsive-listing .respl-wrap .respl-header .respl-sort-view ul.respl-view li.sel a,
+.mini-cartpro .block-title .summary .amount a,
+.sm_megamenu_wrapper_vertical_menu .container-slider .item:hover .product-image .bg-hover .ratings-wishlist .ratings-wrap .no-rating a:hover,
+.sm_megamenu_wrapper_vertical_menu .container-slider .item:hover .item-box-header .product-name a,
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .mega-bestsale .block-feature-products .item .product-name a:hover,
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .mega-bestsale .block-feature-products .item .no-rating:hover,
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .mega-bestsale .block-feature-products .item .rating-links a.review-num:hover,
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .mega-bestsale .block-feature-products .item .rating-links a.add-your-review:hover,
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu li ul li a span:hover,
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu li ul li a:hover:before,
+.yt-left-wrap .block-menu .block-content .nav-menu ul li:hover a,
+.yt-left-wrap .block-menu .block-content ul.nav-menu li ul li.active a,
+#options #confirmbox p.head-iteminfo,
+#blog-list .postWrapper .postTitle h2 a,
+.members .member .member-name:hover,
+#yt_wrapper #yt_pathway  ul.breadcrumbs li a.has-link:hover,
+.yt-product-detail .product-info-box .product-name,
+.yt-product-detail .add-to-holder.have-price .wrap-qty .qty-set input.quantity-input,
+.yt-product-detail .product-info-box .box-main .wrap-qty .qty-set input.quantity-input,
+#yt_wrapper #yt_left #narrow-by-list ol li:hover a,
+#yt_main .products-grid .item:hover .product-image .bg-hover .ratings-wishlist .ratings-wrap .no-rating a:hover,
+#yt_main .products-grid .item:hover .item-box-header .product-name a,
+#yt_wrapper .category-products .view-mode strong,
+.block-tags ul.tags-list li:hover:after,
+.block-tags .block-title a,
+#yt_main_top .banner-alert #myCarousel .link-banner:hover,
+#yt_spotlight .block-user1 > .block-footer-content .nav-item:hover a,
+#yt_spotlight .block-user2 > .block-footer-content .nav-item:hover a,
+#yt_spotlight .services li:hover,
+#yt_spotlight .customer-services li:hover,
+#yt-quick-links .account-header.yt-quick-link .dropdown-menu li > a:hover, 
+#yt-quick-links .account-header.yt-quick-link .dropdown-menu li > a:focus, .dropdown-submenu:hover > a,
+.page-title h1,
+.page-title.category-title h1,
+.my-account a,
+a:focus,
+a:hover
+{
+	color:#5a0bab;
+}
+#options #confirmbox #btcancel:hover,
+.sm-responsive-listing .respl-items.list .respl-item .item-box-footer .cart-compare-wishlist .wishlist-listing:hover,
+.sm-responsive-listing .respl-items.list .respl-item .item-box-footer .cart-compare-wishlist .compare-listing:hover,
+.sm-responsive-listing .respl-items.list .respl-item .item-box-footer .cart-compare-wishlist .cart-listing:hover,
+.sm-responsive-listing .respl-items.list .respl-item .item-box-footer .price-wrapper,
+.sm-responsive-listing .respl-items.list .respl-item .item-inner:hover,
+.sm-responsive-listing .respl-wrap div.respl-btn,
+.sm-responsive-listing .respl-items.grid .respl-item .item-inner .item-box-header .price-wrapper,
+.sm-responsive-listing .respl-wrap .grid .respl-item .item-inner:hover,
+.sm-maxtrix-slider .mts-wrap .mts-info,
+.mini-cartpro .block-content .mini-products-list li.item a.btn-edit:hover,
+.mini-cartpro .block-content .mini-products-list li.item a.btn-remove:hover,
+.mini-cartpro .block-content .bottom-action,
+.sm_megamenu_wrapper_vertical_menu .container-slider .page-button.top .control-button .preview:hover,
+.sm_megamenu_wrapper_vertical_menu .container-slider .page-button.top .control-button .next:hover,
+.sm_megamenu_wrapper_vertical_menu .container-slider .item .item-inner .item-box-header .price-wrapper,
+.sm_megamenu_wrapper_vertical_menu .container-slider .item .item-inner:hover,
+#options #confirmbox #btccart:hover,
+#blog-list .postWrapper .aw-blog-read-more:hover,
+.members .member ul.social li:hover,
+.yt-left-wrap .block-newsletter .block-content-info .input-box .actions .button:hover,
+.yt-left-wrap .block-support,
+#yt_right .block-title, #yt_left .block-title,
+.catalog-product-compare-index .add-to-links >li:hover,
+#checkoutSteps>li.active .step-title,
+#yt_wrapper .multiple-checkout .box-title >h3,
+#yt_wrapper .multiple-checkout .box-title >h2,
+#yt_wrapper .multiple-checkout .box-title >h4,
+#yt_wrapper #checkout_multishipping_form #multiship-addresses-table thead tr th,
+#yt_wrapper #checkout-progress-state > li.active,
+#yt_wrapper #yt_main .my-account .box-title,
+#my-orders-table thead tr th,
+#yt_wrapper #yt_main .my-account .data-table thead tr,
+.yt-product-detail #yt_tab_products .yt-tab-content #yt_abitem_tags .collateral-box .box-collateral .form-add > .button:hover,
+.yt-product-detail #yt_tab_products .yt-tab-navi > li.active,
+.yt-product-detail #yt_tab_products .yt-tab-navi > li:hover,
+.yt-product-detail #yt_tab_products .yt-tab-navi > li.active:hover,
+.yt-product-detail .more-views.slide-gallery .prev:hover,
+.yt-product-detail .more-views.slide-gallery .next:hover,
+.yt-product-detail .add-to-holder.have-price .wrap-qty .qty-set .quantity-controls .quantity-plus:hover,
+.yt-product-detail .product-info-box .box-main span.quantity-controls .quantity-plus:hover,
+.yt-product-detail .add-to-holder.have-price .wrap-qty .qty-set .quantity-controls .quantity-minus:hover,
+.yt-product-detail .product-info-box .box-main span.quantity-controls .quantity-minus:hover,
+.yt-product-detail .add-to-holder .add-to-cart .btn-cart:hover,
+.yt-product-detail .add-to-holder .product-add-box .wishlist a:hover,
+.yt-product-detail .add-to-holder .product-add-box .compare a:hover,
+#yt-totop:hover,
+#yt_wrapper .cart #shopping-cart-table .label-addcard,
+#yt_wrapper #yt_left .layered-nav .layered-accordion.subhead:hover,
+#yt_wrapper #yt_left .layered-nav .layered-accordion.subhead.accordion-open,
+.products-list .item .item-box-footer .cart-compare-wishlist .wishlist-listing:hover,
+.products-list .item .item-box-footer .cart-compare-wishlist .compare-listing:hover,
+.products-list .item .item-box-footer .cart-compare-wishlist .cart-listing:hover,
+.products-list .item .item-box-footer .price-wrapper,
+.products-list .item .item-inner:hover,
+#yt_main .products-grid .item .item-inner .item-box-header .price-wrapper,
+#yt_main .products-grid .item .item-inner:hover ,
+.block-tags ul.tags-list li:hover,
+.page-sitemap .pages ol li:hover a,
+.page-sitemap .pages ol li.current a,
+.toolbar .toolbar-inner .pagination-wrap .pagination .pages ol li.current a,
+.toolbar .toolbar-inner .pagination-wrap .pagination .pages ol li:hover a,
+#yt-quick-links .account-header.yt-quick-link .dropdown-menu .btn-account:hover,
+#yt_header,
+.button:hover
+{
+	background-color:#5a0bab;
+}
+/*------border---*/
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .sm_megamenu_dropdown_1column,
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .sm_megamenu_dropdown_2columns,
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .sm_megamenu_dropdown_3columns,
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .sm_megamenu_dropdown_4columns,
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .sm_megamenu_dropdown_5columns,
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu .sm_megamenu_dropdown_6columns
+{
+	border:8px solid #5a0bab;
+}
+.sm_megamenu_wrapper_vertical_menu .container-slider .item .item-inner:hover .item-box-header {
+	border-bottom-color:#5a0bab;
+}
+.sm_megamenu_wrapper_vertical_menu .container-slider .item .item-inner:hover .item-box-footer {
+	border-top-color:#5a0bab;
+}
+.sm-maxtrix-slider.lt-ie9  .mts-wrap.mts-resp01-1 .mts-images-wrap .mts-mark .mts-mark-inner,
+.sm-maxtrix-slider  .mts-wrap.mts-resp00-1 .mts-images-wrap .mts-mark .mts-mark-inner,
+.sm-maxtrix-slider  .mts-wrap.mts-resp01-1 .mts-images-wrap .mts-mark .mts-mark-inner,
+.sm-maxtrix-slider  .mts-wrap.mts-resp02-1 .mts-images-wrap .mts-mark .mts-mark-inner,
+.sm-maxtrix-slider  .mts-wrap.mts-resp03-1 .mts-images-wrap .mts-mark .mts-mark-inner,
+.sm-maxtrix-slider  .mts-wrap.mts-resp04-1 .mts-images-wrap .mts-mark .mts-mark-inner,
+.sm-maxtrix-slider .mts-wrap .mts-images-wrap .mts-mark .mts-mark-inner{
+	border-color: #5a0bab;	
+}
+.sm-responsive-listing .respl-wrap .grid .respl-item .item-inner:hover .item-box-header {
+	border-bottom-color:#5a0bab;
+}
+
+.sm-responsive-listing .respl-wrap .grid .respl-item .item-inner:hover .item-box-footer {
+	border-top-color:#5a0bab;
+}
+.block-tags ul.tags-list li:hover:after {
+	border: 2px solid #5a0bab;
+}
+#yt_main .products-grid .item .item-inner:hover .item-box-header {
+	border-bottom-color:#5a0bab;
+}
+#yt_main .products-grid .item .item-inner:hover .item-box-footer {
+	border-top-color:#5a0bab;
+}
+.yt-product-detail .jCarouselLite > ul > li.selected{
+	border-color: #5a0bab;
+}
+.yt-product-detail .jCarouselLite > ul > li:hover{
+	border-color:#5a0bab;
+}
+.members .member .member-img:hover{
+	border-color:#5a0bab;
+}
+
+.block-tags{
+	border:8px solid #a955ff;
+}
+/*-litter-*/
+#yt-quick-links .wishlist-header.yt-quick-link .header-wishlist a,
+.jqTransformSelectWrapper a.jqTransformSelectOpen:before,
+#yt_header #yt-quick-links .language-switcher:after,
+#yt_header #yt-quick-links .block-currency:after,
+.jqTransformSelectWrapper div span,
+.sm-maxtrix-slider .mts-wrap .mts-info .mts-info-inner .item-title a:hover,
+#yt-quick-links .account-header.yt-quick-link i,
+.mini-cartpro .block-title .empty, 
+.mini-cartpro .block-title .summary .subtotal, 
+.mini-cartpro .block-title .summary .amount,
+#yt-quick-links .yt-quick-link > a{
+	color:#a955ff;
+}
+.sm-maxtrix-slider .mts-control{
+	border-top:1px solid #a955ff;
+}
+#yt-quick-links .yt-quick-link:before{
+	color:#a955ff;
+}
+.jqTransformSelectWrapper ul a:hover, .jqTransformSelectWrapper ul a.selected:hover,
+.jqTransformSelectWrapper ul a.selected,
+ul.nav-menu li.parent.open > .res-wrapnav ul li:hover,
+ul.nav-menu li.parent.open > .res-wrapnav ul li.active,
+#yt_resmenu_collapse ul.nav-menu > li:hover,
+#yt_resmenu_collapse ul.nav-menu > li.active,
+.catalog-product-compare-index .add-to-links > li,
+#options #confirmbox #btcancel,
+#options #confirmbox #btccart,
+#yt-quick-links .account-header.yt-quick-link .dropdown-menu .btn-account,
+.button,
+#yt-totop,
+#blog-list .postWrapper .aw-blog-read-more,
+#yt_wrapper #tags-icon:hover{
+	background-color:#a955ff;
+}
+/*---background---*/
+.mini-cartpro .block-title .summary .amount a{ 
+background:url("../../images/purple/mycart-qty.png") no-repeat scroll 1px 0;
+}
+#yt_header .top-search #search_mini_form .form-search .button span.search-icon{
+	background:url(../../images/purple/search-icon.png) no-repeat;
+}
+.sm-maxtrix-slider .mts-control li.mts-addtocart button.mts-adttocompare-btn{
+	background:url('../../images/purple/compare-icon.png') no-repeat scroll;
+}
+.sm-maxtrix-slider .mts-control li.mts-addtocart button.mts-adttowishlist-btn{
+	background:url('../../images/purple/wishlist-icon.png') no-repeat scroll;	
+}
+.sm-maxtrix-slider .mts-control li.mts-addtocart button.mts-adttocart-btn{
+	background:url('../../images/purple/cart-icon.png') no-repeat scroll;	
+}
+.sm_megamenu_wrapper_vertical_menu .container-slider .item:hover .product-image .bg-hover .item-short-desc ul li,
+.yt-product-detail .short-description ul li, 
+.products-list .item .item-box-footer .item-short-desc ul li,
+.sm-responsive-listing .respl-items.list .respl-item .item-box-footer .item-short-desc ul li,
+.sm-responsive-listing .respl-items.grid .respl-item:hover .product-image .bg-hover .item-short-desc ul li,
+#yt_main .sm-maxtrix-slider .mts-wrap .mts-info .mts-info-inner .item-description ul li,
+#yt_main .products-grid .item:hover .product-image .bg-hover .item-short-desc ul li{	
+	background:url(../../images/purple/li-short-desc.png) no-repeat scroll 5px 6px transparent;
+}
+.sm_megamenu_wrapper_vertical_menu .container-slider .item:hover .product-image .bg-hover .btn-wishlist,
+.sm-responsive-listing .respl-items.grid .respl-item:hover .product-image .bg-hover .btn-wishlist,
+#yt_main .products-grid .item:hover .product-image .bg-hover .btn-wishlist{
+	background:url(../../images/purple/icon-wishlist.png) no-repeat;
+}
+.sm_megamenu_wrapper_vertical_menu .container-slider .item .product-image .bg-hover,
+#yt_main .products-grid .item .product-image .bg-hover,
+.sm-responsive-listing .respl-items.grid .respl-item .product-image .bg-hover{
+	background: url(../../images/purple/product-hover.png) repeat;
+}
+#yt_wrapper #yt_pathway  ul.breadcrumbs .home{
+	background:url(../../images/purple/logo-breadcrumbs-home.png) no-repeat 0px 3px transparent;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,184 @@
+<?php
+/*------------------------------------------------------------------------
+ # Sm Matrix Slider - Version 1.0.0
+ # Copyright (c) 2013 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.magentech.com
+-------------------------------------------------------------------------*/
+?>
+<script type="text/javascript">
+//<![CDATA[
+    jQuery(document).ready(function($){
+		;(function(element){
+			var $element = $(element);
+			var $slider = $('.mts-slider', $element);
+			var $_mts_info_inner = $('.mts-info-inner', $element);
+			var $_mts_info_item = $('.mts-info-item',$_mts_info_inner);
+			var $_mts_wrap = $('.mts-wrap',$element);
+			var $_mts_wrap_next = $('.mts-wrap-next',$element);
+			var $_mts_wrap_prev = $('.mts-wrap-prev',$element);
+			$slider.responsiver({
+				interval: <?php echo $interval;?>,
+				speed: <?php echo $speed;?>,
+				start: <?php echo $start;?>,
+				easing:'<?php echo $easing; ?>',
+				itemExpr: '.mts-item',
+				circular: true,
+				preload: true,
+				fx: 'slide',
+				pause: '<?php echo ($pause_hover == 1)?"hover":"null"; ?>',
+				control:{
+					prev: '#<?php echo $tag_id;?> .mts-control li[class="mts-prev"]',
+					next: '#<?php echo $tag_id;?> .mts-control li[class="mts-next"]'
+				},
+				selector:{
+					item: '.mts-item',		// require
+					container: '.mts-items'	// require            	
+				},
+				getColumns: function(element){
+					var match = $(element).attr('class').match(/cols-(\d+)/);
+					if (match[1]){
+						var column = parseInt(match[1]);
+					} else {
+						var column = 1;
+					}
+					if (!column) column = 1;
+					return column;
+				}         
+			});
+			
+			$slider.bind('jmaxtrixslide', function(){
+				var $_data = $(this).data('plugin_responsiver'),
+					$_active = $_data['current'],
+					$_item = $('.mts-item',$(this)),
+					$_item_wrap = $('.item-wrap',$_item.eq($_active)),
+					$_mark = $('.mts-mark',$element),
+					$_mark_link = $('.mts-mark-link', $element),
+					$_item_title = $('.item-title > a', $element),
+					$_item_description = $('.item-description',$element),
+					$_item_readmore = $('.item-readmore a',$element),
+					$_hidden_name = $('input.mts-product-name',$element),
+					$_hidden_product_id = $('input.mts-product-id',$element),
+					$_item_price = $('.item-price',$element),
+					$_item_rating = $('.item-rating',$element),
+					$_item_addtocart_url = $('.mts-adttocart-btn',$element);
+				
+				var $_data_title = $_item_wrap.attr('data-title'),
+					$_data_link  = $_item_wrap.attr('data-link'),
+					$_data_description = $_item_wrap.attr('data-description'),
+					$_data_product_id = $_item_wrap.attr('data-product-id'),
+					$_data_subtitle = $_item_wrap.attr('data-subtitle'),
+					$_data_price = $_item_wrap.attr('data-price'),
+					$_data_rating = $_item_wrap.attr('data-rating'),
+					$_data_attorcart_url = $_item_wrap.attr('data-addtocart-url');
+					
+				$_mark_link.attr({'title':$_data_title,'href':$_data_link});
+				$_item_title.attr({'title':$_data_subtitle,'href':$_data_link}).html($_data_subtitle);
+				$_item_description.html($_data_description);
+				$_item_readmore.attr({'title':$_data_title,'href':$_data_link});
+				$_hidden_name.attr('value',$_data_title);
+				$_hidden_product_id	.attr('value',$_data_product_id);
+				$_item_price.html($_data_price);
+				$_item_rating.html($_data_rating);
+				$_item_addtocart_url.attr('onclick',$_data_attorcart_url);
+				 if($_mts_wrap.hasClass('mts-wrap-next')){
+					$('.mts-info-item',$element).css({position:'relative',left:100+'%'}).animate({
+					left:0+'%'},{
+					duration:300,
+					easing:'<?php echo $easing; ?>',
+					queue:false
+					});
+				} else{
+					$('.mts-info-item',$element).css({position:'relative',left:-100+'%'}).animate({
+					left:0+'%'},{
+					duration:300,
+					easing:'<?php echo $easing; ?>',
+					queue:false
+					});
+				}
+				$_mark.animate({
+					height: $_item.eq($_active).height()
+				},{
+					duration:200,
+					queue: false
+				});
+				$_mts_info_inner.animate({
+					height: $_item.eq($_active).height() - 110
+				},{
+					duration:200,
+					queue: false
+				});
+				
+				_getWidthWindow();
+				 $(window).bind('resize.responsiver', function(){
+					_getWidthWindow();
+					//$_mts_info_inner.css({opacity:1})
+				});
+				/** process click item **/
+				$_item.each(function(){
+					var $this = $(this);
+					$this.click( function(){
+						$_data.to($(this).index());
+						$_data['current'] = $(this).index();
+						return false;
+					});
+				});
+				
+			});
+			/** process with slider one column **/	
+			var $info = $('.mts-info',$element);
+			var $image = $('.mts-images-wrap',$element);
+			var _getWidthWindow = function(){
+					$nb_cl0 = <?php echo $nb_column0;?>;
+					$nb_cl1 = <?php echo $nb_column1;?>;
+					$nb_cl2 = <?php echo $nb_column2;?>;
+					$nb_cl3 = <?php echo $nb_column3;?>;
+					$nb_cl4 = <?php echo $nb_column4;?>;						
+				var $_width_window = $(window).innerWidth();
+				if($_width_window <= 479 && $nb_cl4 == 1){
+					$info.insertAfter($image);
+					$_mts_info_inner.removeAttr('style');
+				}else if($_width_window >= 480 && $_width_window <= 767  && $nb_cl3 == 1){
+					$info.insertAfter($image);
+					$_mts_info_inner.removeAttr('style');
+				}
+				else if($_width_window >= 768 && $_width_window <= 1199  && $nb_cl2 == 1){
+					$info.insertAfter($image);
+					$_mts_info_inner.removeAttr('style');
+				}
+				else if($_width_window >= 1200 && $_width_window <= 1599  && $nb_cl1 == 1){
+					$info.insertAfter($image);
+					$_mts_info_inner.removeAttr('style');
+				}else if($_width_window >= 1600  && $nb_cl0 == 1){
+					$info.insertAfter($image);
+					$_mts_info_inner.removeAttr('style');
+				}else{
+					$image.insertAfter($info);
+				}
+			}
+				
+			<?php if($pause_hover == 'hover') { ?>
+			$_mts_info_inner.hover(function(){
+				$slider.responsiver('pause');
+			}, function(){
+				$slider.responsiver('cycle');
+			});
+			<?php }
+			if($swipe_enable == 1) {	?>
+				$element.touchSwipeLeft(function(){
+					$slider.responsiver('next');
+					}
+				);
+				$element.touchSwipeRight(function(){
+					$slider.responsiver('prev');
+					}
+				);
+			<?php } ?>	
+		})('#<?php echo $tag_id; ?>');
+    });
+//]]>
+</script>
+
+ 
+

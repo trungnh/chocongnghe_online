@@ -1,0 +1,168 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+global $var_yttheme;
+?>
+<!DOCTYPE html>
+<html xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<meta name="format-detection" content="telephone=no">
+<?php echo $this->getChildHtml('head') ?>
+</head>
+
+<body id="bd" class="<?php echo $var_yttheme->template ?> <?php echo $this->getBodyClass();?>">
+<?php echo $this->getChildHtml('after_body_start') ?>
+    <div id="yt_wrapper">
+        <!-- BEGIN: Header -->
+		<div id="yt_header" class="wrap navbar-fixed-top"><!--  class  navbar-fixed-top-->
+			     <?php echo $this->getChildHtml('header') ?>
+                 <?php //echo $this->getChildHtml('searchbox') ?>           
+		</div>
+		<!-- END: Header -->
+		<!-- BEGIN: content -->
+        <div id="yt_content" class="wrap">
+            <div class="container">
+                <div class ="row-fluid">
+                	
+                    <div id="yt_main" class="span12 col-main" data-tablet="span12 col-main" data-stablet="span12 col-main" data-mobile="span12 col-main">  <!--data-normal="span9d" data-tablet="span9" data-stablet="span9"-->
+                    <div id="yt_main_inner">
+                    	
+						<?php echo $this->getChildHtml('breadcrumbs') ?>
+                        <?php echo $this->getTitle() ?>                                        	                        
+                               				
+                        <?php if($this->getChildHtml('content-top')){ ?>
+                        <div id="yt_main_top">
+                        	<?php echo $this->getChildHtml('content-top') ?>                                 
+                        	<script type="text/javascript">
+									jQuery(document).ready(function($){
+									$('.carousel').carousel({
+									  interval: 3000
+									})
+
+									})
+								</script>   
+                        </div> 
+                        <?php } ?>                        
+                        <?php if($this->getChildHtml('content')){ ?>
+                        <div id="yt_main_middle">     
+                        	<!-- global notices -->
+							<?php echo $this->getChildHtml('global_notices') ?>
+							<!-- global messages -->
+							<?php echo $this->getChildHtml('global_messages') ?>
+                            
+                            <div id="yt_main_middle_inner">                 
+        					<?php echo $this->getChildHtml('content') ?>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        
+                        <div id="yt_main_bottom">
+                        	<?php //echo $this->getChildHtml('content-bottom') ?> 
+                            <!-- BEGIN: footer -->
+                            <?php if ($this->getChildHtml('footer')){ ?>
+        					<div id="yt_footerwrap">
+            					<div class="container">
+        	  						<?php echo $this->getChildHtml('footer') ?>
+                                    <script type="text/javascript">
+										$jsmart('document').ready(function($){											
+											$('#yt_footerwrap').append('<div id="footer-button"><i class="icon-minus"></i></div>');
+											
+											$('#yt_footerwrap > #footer-button').click(function(){
+												var $this = $(this);
+												$("#yt_spotlight").slideToggle();
+												
+												if( $this.is('.up') ) {
+												$this.removeClass('up');
+												$this.addClass('shown');
+												}
+												else {
+												$this.removeClass('shown');
+												$this.addClass('up');
+												}
+												return false;
+											});
+										});
+								  </script>
+            					</div>
+       						</div>
+                            <?php } ?>
+        					<!-- END: footer-->
+                            <!-- BEGIN: spotlight -->
+        					<?php if ($this->getChildHtml('spotlight')) { ?>
+        					<div id="yt_spotlight" class="wrap">
+           		 				<div class="container">
+        	   						<?php echo $this->getChildHtml('spotlight') ?>
+            					</div>
+        					</div>
+       	 					<?php } ?>
+        					<!-- END: spotlight -->        					                          
+                        </div> 
+                        <div class="payment-copyright-bottom">
+								<?php echo $this->getChildHtml('blockpayment') ?>
+                                <?php //echo $this->getCopyright() ?>
+                                <div class="copyright">
+                                	<?php echo "&copy; 2013 Magento Demo Store"; ?><br />
+                                     Designed by <a title="Visit MagenTech.Com!" href="http://www.magentech.com/"><b>MagenTech.Com</b></a>
+                                </div>
+                         </div>
+                                              
+                    </div>
+                    </div>
+                    <script type="text/javascript">
+					$jsmart('document').ready(function($){
+						//set the starting bigestHeight variable
+						var biggestHeight = 0;
+						//check each of them
+						$('#yt_left').each(function(){
+						//if the height of the current element is
+						//bigger then the current biggestHeight value
+						if($(this).height() > biggestHeight){
+						//update the biggestHeight with the
+						//height of the current elements
+						biggestHeight = $(this).height();
+						}
+						});
+						//when checking for biggestHeight is done set that
+						//height to all the elements
+						$('#yt_main').css('min-height',biggestHeight);
+						});
+					</script>
+                     
+                </div>
+             
+             </div>
+         </div>      
+        <!-- END: content -->
+        
+		<?php echo $this->getChildHtml('before_body_end') ?>
+        <?php echo $this->getAbsoluteFooter() ?>
+    </div>
+</body>
+</html>

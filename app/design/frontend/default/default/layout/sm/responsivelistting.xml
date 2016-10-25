@@ -1,0 +1,19 @@
+<?xml version="1.0"?>   
+<layout version="1.0">
+	<default>
+        <reference name="head">
+        	<action method="addCss"><stylesheet>sm/responsivelistting/css/sm_responsivereslisting.css</stylesheet></action>
+			<action method="addCss"><stylesheet>sm/responsivelistting/css/isotope.css</stylesheet></action>
+        </reference>
+    </default>
+	<responsivelistting_index_index>
+		<reference name="content">
+			<block type="responsivelistting/list" name="responsivelistting.list.default">
+				<action method="setConfig">
+				</action>
+			</block>
+		</reference>
+		<!--remove name="left" /-->
+	</responsivelistting_index_index>	
+</layout>   
+	

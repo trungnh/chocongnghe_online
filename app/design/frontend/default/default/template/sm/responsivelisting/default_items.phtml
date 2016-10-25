@@ -1,0 +1,119 @@
+<?php
+/*------------------------------------------------------------------------
+ # SM Responsive Listing - Version 1.0
+ # Copyright (c) 2013 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.magentech.com
+-------------------------------------------------------------------------*/
+
+$smarthelper = Mage::helper('responsivelisting/utils');
+$list = $this->getProduct();
+$options = $this->getConfigObject();
+
+if(isset($list['items'])) {
+foreach($list['items']  as $item){ 
+
+?>
+	<div class="respl-item first-load category-<?php echo $item->catid; ?>" data-created="<?php echo strtotime($item->createdfrom); ?>" data-price="<?php echo $item->hits; ?>" data-title="<?php echo trim(strtoupper($item->title)); ?>" data-id="<?php echo $item->id; ?>" data-catid="<?php echo $item->catid ;?>">
+		<div class="item-inner">
+			<div class="item-image cf">
+				<?php if( $options->item_cat_display == 1 ){?>
+				<div class="item-public" data-value="<?php echo 'Published in';?>">&nbsp;
+					<a href="<?php echo $item->category_link ?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true"; title="<?php echo $item->category_title?>" >
+						<?php echo $item->category_title?>
+					</a>
+				</div>
+				<?php }?>
+					<a href="<?php echo $item->link ?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true"; title="<?php echo $item->title?>" >
+						<img src="<?php echo $item->image;?>"  alt="<?php echo $item->title;?>" />
+					<?php if( $options->item_cat_display == 1 ){?>
+					<span class="item-opacity"></span>
+					<?php }?>
+					</a>
+			</div>
+			<?php if( $options->item_title_display == 1 ){?>
+			<div class="item-title ">
+				<a href="<?php echo $item->link ?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true"; title="<?php echo $item->title?>" >
+					<?php echo $item->title; ?>
+				</a>
+			</div>
+			<?php }?>
+			<?php if( $options->item_price_disp== 1 || $options->item_review_disp == 1) {?>
+			<div class="item-post-read cf">
+				<?php if( $options->item_price_disp == 1 ) {	?>
+				<div class="item-tags">
+					  <?php echo $item->price_html; ?>
+				</div>
+				<?php }?>
+				<?php if( $options->item_review_disp == 1 ) {?>
+				<div class="item-read"><?php echo $item->review_html; ?></div>
+				<?php }?>
+				
+			</div>
+			<?php } ?>
+			<?php if( $options->item_desc_display == 1 ) {?>
+			<div class="item-desc">
+				<?php echo $item->description; ?>
+			</div>
+			<?php }?>
+			<?php if($options->item_readmore_display == 1){?>
+			<div class="item-readmore">
+				<a href="<?php echo $item->link ?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true"; title="<?php echo $item->title?>" data-arrow="&#187;" >
+					<?php echo $options->item_readmore_text; ?>
+				</a>
+			</div>
+			<?php } ?>
+			<div class="item-more">
+				<div class="more-image cf">
+					<a href="<?php echo $item->link ?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true"; title="<?php echo $item->title?>" >
+						<img src="<?php echo $item->image;?>"  alt="<?php echo $item->title;?>" />
+					</a>
+				</div>
+				<?php if( $options->item_title_display == 1 || $options->item_cat_display == 1 || $options->item_desc_display == 1 || $options->item_review_disp == 1 || $options->item_price_disp == 1 || $options->item_readmore_display == 1 ){ ?>
+					<div class="more-desc">
+						<div class ="more-opacity"></div>
+						<div class="more-inner">
+							<?php if( $options->item_title_display == 1 ){?>
+							<div class="more-title">
+								<a href="<?php echo $item->link ?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true"; title="<?php echo $item->title?>" >
+									<?php echo $item->title; ?>
+								 </a>
+								
+							</div>
+							<?php }?>						
+							<?php if( $options->item_cat_display == 1 ){?>
+							<div class="more-public" data-value="<?php echo "Published in"; ?>">&nbsp;
+								<a href="<?php echo $item->category_link ?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true"; title="<?php echo $item->category_title?>" >
+									<?php echo $item->category_title ?>
+								</a>
+							</div>
+							<?php }?>
+							<?php if( $options->item_desc_display == 1 ) {?>
+							<div class="more-content">
+								<?php echo $item->description; ?>
+							</div>
+							<?php }?>
+							<?php if( $options->item_review_disp == 1 ){?>
+								<div class="more-review"><?php echo $item->review_html; ?></div>
+							<?php }?>						
+							<?php if( $options->item_price_disp == 1 ) {	?>
+							<div class="more-price">
+								  <?php echo $item->price_html; ?>
+							</div>
+							<?php }?>					
+							<?php if($options->item_readmore_display == 1){?>
+							<div class="more-readmore">
+								<a href="<?php echo $item->link ?>" <?php echo $smarthelper->getTargetAttr($options->product_links_target);?> onclick="javascript: return true"; title="<?php echo $item->title?>" >
+									<?php echo $options->item_readmore_text; ?>
+								</a>
+							</div>
+							<?php }?>
+						</div>
+					 </div>
+				 <?php }?>
+			</div>
+		</div>
+	</div>
+<?php } 
+} ?>

@@ -1,0 +1,35 @@
+<?php
+/*------------------------------------------------------------------------
+ # SM Scrollbar - Version 1.0
+ # Copyright (c) 2013 YouTech Company. All Rights Reserved.
+ # @license - Copyrighted Commercial Software
+ # Author: YouTech Company
+ # Websites: http://www.magentech.com
+-------------------------------------------------------------------------*/
+
+$options = $this->getConfigObject();
+$smarthelper= Mage::helper('scrollbar/utils');
+$list = $this->getProducts();
+$instance	= rand().time();
+$show_arrows = $options->show_arrows;
+$show_arrows = ($show_arrows)?'true':'false';
+
+	if ( !empty($options->pretext) ){
+		echo '<div class="text-block">' . $options->pretext . '</div>';
+	}
+	
+	if (count($list)){
+		echo $this->getScriptTags();
+		$layoutname = $options->theme;
+		if( $layoutname == "horizontal" ){
+			include 'default_horizontal.phtml';
+		}else{
+			include 'default_vertical.phtml';
+		}
+	} else { 
+		echo "<p>There no item matching selection.</p>";
+	}
+
+	if ( !empty($options->posttext) ){
+		echo '<div class="text-block">' . $options->posttext . '</div>';
+	}

@@ -1,0 +1,119 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+global $var_yttheme;?>	
+	
+		<!--<div class="header-mobi">
+			<div class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-inner">
+						<button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<div class="nav-collapse collapse">
+							<?php //echo $this->getChildHtml('topLinks') ?>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>-->							
+				<div class="row-fluid">		
+					<!-- BEGIN: Logo -->
+					<div id="logo-viste" class="span3" data-normal="span3" data-tablet="span12" data-stablet="span12" data-mobile="span12">						
+						<a class="logo" title="Viste - Camera Online Store" href="<?php echo $this->getUrl('') ?>">
+							<img alt="Viste camera online store" src="<?php echo $var_yttheme->skinurl();?>/images/logo-viste.png"/>                            							
+							<?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('block-logo')->toHtml(); ?>
+						</a>
+					</div>
+					<!-- END logo-->                                       
+					<!--<div id="header-right" class="span9" data-normal="span9" data-tablet="span9" data-stablet="span9" data-mobile="span9">-->	                    	                        	
+                                               				
+                    	                   	                                              
+                    <div class="span9" data-tablet="span12" data-stablet="span12" data-mobile="span12">
+                    <div id="yt-responsivemenu" class="yt-resmenu span1">
+                          <?php echo $this->getChildHtml('mobiMenu'); ?>
+                    </div> 
+                 
+                    <div class="top-search">
+                        <?php  echo $this->getChildHtml('topSearch') ?>
+                   </div>
+                    <div id="yt-quick-links">                                                                    								                        <div class="yt-quick-links-inner">        
+                                    <div class="account-header yt-quick-link">                                
+                                        <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#" title="<?php echo $this->__('My account'); ?>">
+                                            <span><?php echo $this->__('My account'); ?></span><i class="icon-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        <?php if(!$this->helper('customer')->isLoggedIn() ){ ?>
+                                            <a class="btn-account" href="<?php echo $this->getUrl('customer/account/login') ?>" title="Sign in">Sign in</a>
+                                            <li><a href="<?php echo $this->getUrl('customer/account/login'); ?>" title="<?php echo $this->__('My Account'); ?>"><?php echo $this->__('My Account'); ?></a></li>
+                                            <li><a href="<?php echo $this->getUrl('customer/account/login'); ?>" title="<?php echo $this->__('My My Order'); ?>"><?php echo $this->__('My Order'); ?></a></li>
+                                            <li><a href="<?php echo $this->getUrl('customer/account/login'); ?>" title="<?php echo $this->__('My Tags'); ?>"><?php echo $this->__('My Tags'); ?></a></li>
+                                            <li><a href="<?php echo $this->getUrl('customer/account/login'); ?>" title="<?php echo $this->__('My Wishlist'); ?>"><?php echo $this->__('My Wishlist'); ?></a></li>
+                                            <li><a href="<?php echo $this->getUrl('customer/account/login'); ?>" title="<?php echo $this->__('My Applications'); ?>"><?php echo $this->__('My Applications'); ?></a></li>
+                                            <li><a href="<?php echo $this->getUrl('customer/account/login'); ?>" title="<?php echo $this->__('My Product Reviews'); ?>"><?php echo $this->__('My Product Reviews'); ?></a></li>
+                                           <?php } else {?>
+                                           <a class="btn-account" href="<?php echo $this->getUrl('customer/account/logout') ?>" title="<?php echo $this->__('Sign out'); ?>"><?php echo $this->__('Sign out'); ?></a>
+                                            <li><a href="<?php echo $this->getUrl() ?>customer/account" title="<?php echo $this->__('My Account'); ?>"><?php echo $this->__('My Account'); ?></a></li>
+                                            <li><a href="<?php echo $this->getUrl() ?>sales/order/history/" title="<?php echo $this->__('My Order'); ?>"><?php echo $this->__('My Order'); ?></a></li>
+                                            <li><a href="<?php echo $this->getUrl() ?>tag/customer/" title="<?php echo $this->__('My Tags'); ?>"><?php echo $this->__('My Tags'); ?></a></li>
+                                            <li><a href="<?php echo $this->getUrl() ?>wishlist/" title="<?php echo $this->__('My Wishlist'); ?>"><?php echo $this->__('My Wishlist'); ?></a></li>
+                                            <li><a href="<?php echo $this->getUrl() ?>oauth/customer_token/" title="<?php echo $this->__('My Applications'); ?>"><?php echo $this->__('My Applications'); ?></a></li>
+                                            <li><a href="<?php echo $this->getUrl() ?>review/customer/" title="<?php echo $this->__('My Product Reviews'); ?>"><?php echo $this->__('My Product Reviews'); ?></a></li>                                        
+                                           <?php } ?>
+                                        </ul>
+                                    </div>
+                                    <div class="wishlist-header yt-quick-link">
+                                        <!--<a href="<?php //echo $this->getUrl('wishlist') ?>" title="<?php echo $this->__('Wishlist'); ?>"><?php echo $this->__('Wishlist'); ?></a>-->
+                                        <?php echo $this->getChildHtml('topLinks') ?>  
+                                    </div>
+                                    <div class="minicartpro yt-quick-link">
+                                        <?php echo $this->getChildHtml('mini-cartpro') ?>
+                                    </div>
+                                     <div class="checkout-header yt-quick-link">
+                                        <a href="<?php echo $this->getUrl('checkout') ?>" title="<?php echo $this->__('Checkout'); ?>"><?php echo $this->__('Checkout'); ?></a>
+                                    </div>
+                                    <!--<div class="currency yt-quick-link">-->
+                                        <?php echo $this->getChildHtml('store_language') ?>
+                                        <?php echo $this->getChildHtml('currency'); ?>                                    
+                                    <!--</div>-->
+                                    <!--<div class="yt-quick-access">
+                                    <?php //echo $this->getChildHtml('topLinks') ?>                                 	
+                                    </div>-->          
+                            </div>
+                        </div>
+                                       
+                   </div>                   
+				</div>				
+			
+<?php
+                include (dirname(__FILE__).'/new_cpanel.phtml');
+				include (dirname(__FILE__).'/backtotop.phtml');
+				?>		
+
+		
+		
+
